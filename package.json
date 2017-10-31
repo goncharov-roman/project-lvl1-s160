@@ -1,5 +1,5 @@
 {
-  "name": "project",
+  "name": "project-lvl1-s160-braingames",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/goncharov-roman/project-lvl1-s160#readme",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
+    "babel-cli": "*",
     "babel-core": "*",
     "babel-preset-env": "*",
     "babel-preset-stage-0": "*"
