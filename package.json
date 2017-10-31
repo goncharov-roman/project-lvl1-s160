@@ -3,8 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "brain-games": "dist/src/brain-games.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel-node": "babel-node",
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -15,5 +21,11 @@
   "bugs": {
     "url": "https://github.com/goncharov-roman/project-lvl1-s160/issues"
   },
-  "homepage": "https://github.com/goncharov-roman/project-lvl1-s160#readme"
+  "homepage": "https://github.com/goncharov-roman/project-lvl1-s160#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "*",
+    "babel-preset-env": "*",
+    "babel-preset-stage-0": "*"
+  }
 }
