@@ -12,6 +12,13 @@ export const getUserName = () => {
 
 const getRandom = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
+const getGcd = (num1, num2) => {
+  if (num2 === 0) {
+    return num1;
+  }
+  return getGcd(num2, num1 % num2);
+};
+
 export const gameEvenFunction = (name) => {
   const number = getRandom(0, 100);
   console.log(`Question: ${number}`);
@@ -56,6 +63,22 @@ export const gameCalcFunction = (name, iterNum) => {
   } else if (iterNum === 2) {
     console.log(`The right one is ${number1 * number2}`);
   }
+  console.log(`Let's try again, ${name}`);
+  return 1;
+};
+
+export const gameGcdFunction = (name) => {
+  const number1 = getRandom(1, 30);
+  const number2 = getRandom(1, 30);
+  console.log(`Question: ${number1} ${number2}`);
+  const res = readlineSync.question('Your answer: ');
+  if (Number(res) === getGcd(number1, number2)) {
+    console.log('Correct!');
+    return 0;
+  }
+
+  console.log(`'${res}' is wrong answer ;(`);
+  console.log(`The right one is ${getGcd(number1, number2)}`);
   console.log(`Let's try again, ${name}`);
   return 1;
 };
