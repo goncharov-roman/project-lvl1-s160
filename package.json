@@ -1,6 +1,6 @@
 {
   "name": "project-lvl1-s160-braingames",
-  "version": "1.1.0",
+  "version": "0.2.0",
   "description": "",
   "main": "index.js",
   "bin": {
@@ -10,7 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "babel-node": "babel-node",
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "eslint": "eslint"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,9 @@
     "url": "https://github.com/goncharov-roman/project-lvl1-s160/issues"
   },
   "homepage": "https://github.com/goncharov-roman/project-lvl1-s160#readme",
+  "dependencies": {
+    "readline-sync": "*"
+  },
   "devDependencies": {
     "babel-cli": "*",
     "babel-core": "*",
