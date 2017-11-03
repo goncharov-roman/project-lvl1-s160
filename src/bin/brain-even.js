@@ -1,4 +1,5 @@
 #!/usr/bin/env node
-import { gameFunction, gameEvenFunction } from '..';
+import gameEvenFunction from '../even';
+import { gameFunction } from '..';
 
 gameFunction('Answer "yes" if number is even otherwise answer "no"`', gameEvenFunction);
