@@ -1,32 +1,27 @@
 import readlineSync from 'readline-sync';
 import { getRandom } from '.';
 
-const getMin = (num) => {
+const getMinMax = (num, flag) => {
   let min = Number(num[0]);
+  let max = min;
   for (let i = 1; i < num.length; i += 1) {
     if (Number(num[i]) < min) {
       min = num[i];
     }
-  }
-  return String(min);
-};
-
-const getMax = (num) => {
-  let max = Number(num[0]);
-  for (let i = 1; i < num.length; i += 1) {
     if (Number(num[i]) > max) {
       max = num[i];
     }
   }
-  return String(max);
+  const res = flag === 'max' ? String(max) : String(min);
+  return res;
 };
 
 const getBalanced = (str) => {
   const num = Array.from(str);
   const newNum = [];
-  const minInd = num.indexOf(getMin(str));
-  const maxInd = num.indexOf(getMax(str));
-  if ((Number(getMax(str)) - Number(getMin(str))) <= 1) {
+  const minInd = num.indexOf(getMinMax(str, 'min'));
+  const maxInd = num.indexOf(getMinMax(str, 'max'));
+  if ((Number(getMinMax(str, 'max')) - Number(getMinMax(str, 'min'))) <= 1) {
     return num.sort().join('');
   }
   for (let i = 0; i < num.length; i += 1) {
