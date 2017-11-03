@@ -1,12 +1,10 @@
 import readlineSync from 'readline-sync';
 
-const questionFunction = () => {
+const questionFunction = (task) => {
+  console.log('Welcome to the Brain Games!');
+  console.log(task);
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
-};
-
-export const getUserName = () => {
-  const userName = readlineSync.question('May I have your name? ');
   return userName;
 };
 
@@ -81,6 +79,23 @@ export const gameGcdFunction = (name) => {
   console.log(`The right one is ${getGcd(number1, number2)}`);
   console.log(`Let's try again, ${name}`);
   return 1;
+};
+
+export const gameFunction = (task, func) => {
+  const userName = questionFunction(task);
+
+  const iter = (acc) => {
+    if (acc === 3) {
+      console.log(`Congratulations, ${userName}!`);
+      return 0;
+    }
+    if (func(userName, acc) === 0) {
+      return iter(acc + 1);
+    }
+    return 1;
+  };
+
+  iter(0);
 };
 
 export default questionFunction;

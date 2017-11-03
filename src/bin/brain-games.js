@@ -1,5 +1,4 @@
 #!/usr/bin/env node
 import questionFunction from '..';
 
-console.log('Welcome to the Brain Games!');
-questionFunction();
+questionFunction('Welcome to the Brain Games!', '');
