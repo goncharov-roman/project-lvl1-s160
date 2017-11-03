@@ -1,5 +1,4 @@
-import readlineSync from 'readline-sync';
-import { getRandom } from '.';
+import { getRandom, questionAnswer, failOut } from '..';
 
 const getMinMax = (num, flag) => {
   let min = Number(num[0]);
@@ -38,15 +37,11 @@ const getBalanced = (str) => {
 
 export default (name) => {
   const number = getRandom(100, 999);
-  console.log(`Question: ${number}`);
-  const res = readlineSync.question('Your answer: ');
+  const res = questionAnswer(number);
   if (res === getBalanced(String(number))) {
     console.log('Correct!');
-    return 0;
+    return 'yes';
   }
-
-  console.log(`'${res}' is wrong answer ;(`);
-  console.log(`The right one is ${getBalanced(String(number))}`);
-  console.log(`Let's try again, ${name}`);
-  return 1;
+  failOut(res, getBalanced(String(number)), name);
+  return 'no';
 };
