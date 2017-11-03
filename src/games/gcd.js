@@ -1,5 +1,3 @@
-import { getRandom, questionAnswer, failOut } from '..';
-
 const getGcd = (num1, num2) => {
   if (num2 === 0) {
     return num1;
@@ -7,15 +5,12 @@ const getGcd = (num1, num2) => {
   return getGcd(num2, num1 % num2);
 };
 
-export default (name) => {
-  const number1 = getRandom(1, 30);
-  const number2 = getRandom(1, 30);
-  const res = questionAnswer(number1, number2);
+export default (numbers, res) => {
+  const number1 = Number(numbers[0]);
+  const number2 = Number(numbers[1]);
   if (Number(res) === getGcd(number1, number2)) {
-    console.log('Correct!');
     return 'yes';
   }
 
-  failOut(res, getGcd(number1, number2), name);
-  return 'no';
+  return getGcd(number1, number2);
 };

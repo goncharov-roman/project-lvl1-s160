@@ -1,20 +1,9 @@
-import readlineSync from 'readline-sync';
-import { getRandom } from '.';
-
-export default (name) => {
-  const number = getRandom(0, 100);
-  console.log(`Question: ${number}`);
-  const res = readlineSync.question('Your answer: ');
+export default (numbers, res) => {
+  const number = numbers[0];
   if ((number % 2 === 0 && res === 'yes') ||
     (number % 2 === 1 && res === 'no')) {
-    console.log('Correct!');
-    return 0;
+    return 'yes';
   }
 
-  console.log(`'${res}' is wrong answer ;(`);
-  if (res === 'yes' || res === 'no') {
-    console.log(`Correct answer was '${res === 'yes' ? 'no' : 'yes'}'`);
-  }
-  console.log(`Let's try again, ${name}!`);
-  return 1;
+  return number % 2 === 0 ? '\'yes\'' : '\'no\'';
 };

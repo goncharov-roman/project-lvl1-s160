@@ -1,5 +1,3 @@
-import { getRandom, questionAnswer, failOut } from '..';
-
 const getMinMax = (num, flag) => {
   let min = Number(num[0]);
   let max = min;
@@ -35,13 +33,9 @@ const getBalanced = (str) => {
   return getBalanced(newNum.join(''));
 };
 
-export default (name) => {
-  const number = getRandom(100, 999);
-  const res = questionAnswer(number);
-  if (res === getBalanced(String(number))) {
-    console.log('Correct!');
+export default (numbers, res) => {
+  if (res === getBalanced(String(numbers[0]))) {
     return 'yes';
   }
-  failOut(res, getBalanced(String(number)), name);
-  return 'no';
+  return getBalanced(String(numbers[0]));
 };
