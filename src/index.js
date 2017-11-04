@@ -30,13 +30,13 @@ export const gameFunction = (task, func) => {
       console.log(`Congratulations, ${userName}!`);
       return 'win';
     }
-    const question = func(acc);
-    const answer = questionAnswer(question[0]);
-    if (answer === String(question[1])) {
+    const dataForGame = func(acc);
+    const answer = questionAnswer(dataForGame[0]);
+    if (answer === String(dataForGame[1])) {
       console.log('Correct!');
       return iter(acc + 1);
     }
-    failOut(answer, question[1], userName);
+    failOut(answer, dataForGame[1], userName);
     return 'fail';
   };
 
