@@ -8,9 +8,8 @@ const questionFunction = (task) => {
   return userName;
 };
 
-const questionAnswer = (nums, rand) => {
-  const numOut = nums.slice(0, rand).join(' ');
-  console.log(`Question: ${numOut}`);
+const questionAnswer = (args) => {
+  console.log(`Question: ${args}`);
   const res = readlineSync.question('Your answer: ');
   return res;
 };
@@ -21,39 +20,21 @@ const failOut = (wrongResult, trueResult, name) => {
   console.log(`Let's try again, ${name}`);
 };
 
-const getRandom = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+export const getRandom = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
-const randomNums = (min, max, rand, acc) => {
-  const nums = [];
-  nums[0] = getRandom(min, max);
-  nums[1] = getRandom(min, max);
-  if (rand > 2) {
-    nums[0] = getRandom(min, max);
-    if (acc === 0) {
-      nums[1] = '+';
-    } else {
-      nums[1] = acc === 1 ? '-' : '*';
-    }
-    nums[2] = getRandom(min, max);
-  }
-  return nums;
-};
-
-export const gameFunction = (task, func, min, max, rand) => {
+export const gameFunction = (task, str) => {
   const userName = questionFunction(task);
   const iter = (acc) => {
     if (acc === 3) {
       console.log(`Congratulations, ${userName}!`);
       return 'win';
     }
-    const numbers = randomNums(min, max, rand, acc);
-    const res = questionAnswer(numbers, rand);
-    const result = func(numbers, res, acc);
-    if (result === 'yes') {
+    const answer = questionAnswer(str[acc][0]);
+    if (answer === String(str[acc][1])) {
       console.log('Correct!');
       return iter(acc + 1);
     }
-    failOut(res, result, userName);
+    failOut(answer, str[acc][1], userName);
     return 'fail';
   };
 

@@ -1,3 +1,5 @@
+import { gameFunction, getRandom } from '..';
+
 const getMinMax = (num, flag) => {
   let min = Number(num[0]);
   let max = min;
@@ -33,9 +35,16 @@ const getBalanced = (str) => {
   return getBalanced(newNum.join(''));
 };
 
-export default (numbers, res) => {
-  if (res === getBalanced(String(numbers[0]))) {
-    return 'yes';
+const gameBalanceFunction = () => {
+  const str = [];
+  for (let i = 0; i < 3; i += 1) {
+    str[i] = [];
+    const num = getRandom(100, 9999);
+    str[i][0] = `${num}`;
+    str[i][1] = getBalanced(String(num));
   }
-  return getBalanced(String(numbers[0]));
+
+  gameFunction('Balance the given number."\n', str);
 };
+
+export default gameBalanceFunction;

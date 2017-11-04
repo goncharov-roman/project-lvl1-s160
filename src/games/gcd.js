@@ -1,3 +1,5 @@
+import { gameFunction, getRandom } from '..';
+
 const getGcd = (num1, num2) => {
   if (num2 === 0) {
     return num1;
@@ -5,12 +7,16 @@ const getGcd = (num1, num2) => {
   return getGcd(num2, num1 % num2);
 };
 
-export default (numbers, res) => {
-  const number1 = Number(numbers[0]);
-  const number2 = Number(numbers[1]);
-  if (Number(res) === getGcd(number1, number2)) {
-    return 'yes';
+const gcdFunction = () => {
+  const str = [];
+  for (let i = 0; i < 3; i += 1) {
+    str[i] = [];
+    const num1 = getRandom(2, 30);
+    const num2 = getRandom(2, 30);
+    str[i][0] = `${num1} ${num2}`;
+    str[i][1] = getGcd(num1, num2);
   }
-
-  return getGcd(number1, number2);
+  gameFunction('Find the greater common divisor of given numbers\n', str);
 };
+
+export default gcdFunction;

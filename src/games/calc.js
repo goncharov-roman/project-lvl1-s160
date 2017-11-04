@@ -1,15 +1,25 @@
-export default (numbers, res, iterNum) => {
-  const number1 = numbers[0];
-  const number2 = numbers[2];
-  if ((iterNum === 0 && Number(res) === number1 + number2) ||
-    (iterNum === 1 && Number(res) === number1 - number2) ||
-    (iterNum === 2 && Number(res) === number1 * number2)) {
-    return 'yes';
+import { gameFunction, getRandom } from '..';
+
+const calcFunction = () => {
+  const str = [];
+  let symbol = '';
+  for (let i = 0; i < 3; i += 1) {
+    str[i] = [];
+    const num1 = getRandom(0, 20);
+    const num2 = getRandom(0, 20);
+    if (i === 0) {
+      symbol = '+';
+      str[i][1] = num1 + num2;
+    } else if (i === 1) {
+      symbol = '-';
+      str[i][1] = num1 - num2;
+    } else {
+      symbol = '*';
+      str[i][1] = num1 * num2;
+    }
+    str[i][0] = `${num1} ${symbol} ${num2}`;
   }
-  if (iterNum === 0) {
-    return number1 + number2;
-  } else if (iterNum === 1) {
-    return number1 - number2;
-  }
-  return number1 * number2;
+  gameFunction('What is the result of the expression?\n', str);
 };
+
+export default calcFunction;
