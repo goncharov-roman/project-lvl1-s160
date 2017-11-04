@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { gameFunction, getRandom } from '..';
 
 const getMinMax = (num, flag) => {
@@ -35,17 +36,12 @@ const getBalanced = (str) => {
   return getBalanced(newNum.join(''));
 };
 
-const gameBalanceFunction = () => {
-  const round = 3;
+const balanceFunction = () => {
   const str = [];
-  for (let i = 0; i < round; i += 1) {
-    str[i] = [];
-    const num = getRandom(100, 9999);
-    str[i][0] = `${num}`;
-    str[i][1] = getBalanced(String(num));
-  }
-
-  gameFunction('Balance the given number."\n', str);
+  const num = getRandom(100, 9999);
+  str[0] = `${num}`;
+  str[1] = getBalanced(String(num));
+  return str;
 };
 
-export default gameBalanceFunction;
+export default () => gameFunction('Balance the given number."\n', balanceFunction);

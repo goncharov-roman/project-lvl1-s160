@@ -22,19 +22,21 @@ const failOut = (wrongResult, trueResult, name) => {
 
 export const getRandom = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
-export const gameFunction = (task, str, round) => {
+export const gameFunction = (task, func) => {
+  const round = 3;
   const userName = questionFunction(task);
   const iter = (acc) => {
     if (acc === round) {
       console.log(`Congratulations, ${userName}!`);
       return 'win';
     }
-    const answer = questionAnswer(str[acc][0]);
-    if (answer === String(str[acc][1])) {
+    const question = func(acc);
+    const answer = questionAnswer(question[0]);
+    if (answer === String(question[1])) {
       console.log('Correct!');
       return iter(acc + 1);
     }
-    failOut(answer, str[acc][1], userName);
+    failOut(answer, question[1], userName);
     return 'fail';
   };
 
