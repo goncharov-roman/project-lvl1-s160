@@ -16,7 +16,7 @@ const questionAnswer = (args) => {
 
 const failOut = (wrongResult, trueResult, name) => {
   console.log(`'${wrongResult}' is wrong answer ;(`);
-  console.log(`The right one is ${trueResult}`);
+  console.log(`The right one is '${trueResult}'`);
   console.log(`Let's try again, ${name}`);
 };
 

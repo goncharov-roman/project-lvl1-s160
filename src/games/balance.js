@@ -44,4 +44,4 @@ const balanceFunction = () => {
   return str;
 };
 
-export default () => gameFunction('Balance the given number."\n', balanceFunction);
+export default () => gameFunction('Balance the given number.\n', balanceFunction);
