@@ -22,10 +22,10 @@ const failOut = (wrongResult, trueResult, name) => {
 
 export const getRandom = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
-export const gameFunction = (task, str) => {
+export const gameFunction = (task, str, round) => {
   const userName = questionFunction(task);
   const iter = (acc) => {
-    if (acc === 3) {
+    if (acc === round) {
       console.log(`Congratulations, ${userName}!`);
       return 'win';
     }

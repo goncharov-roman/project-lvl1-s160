@@ -1,9 +1,10 @@
 import { gameFunction, getRandom } from '..';
 
 const calcFunction = () => {
+  const round = 3;
   const str = [];
   let symbol = '';
-  for (let i = 0; i < 3; i += 1) {
+  for (let i = 0; i < round; i += 1) {
     str[i] = [];
     const num1 = getRandom(0, 20);
     const num2 = getRandom(0, 20);

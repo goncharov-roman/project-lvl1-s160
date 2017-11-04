@@ -36,8 +36,9 @@ const getBalanced = (str) => {
 };
 
 const gameBalanceFunction = () => {
+  const round = 3;
   const str = [];
-  for (let i = 0; i < 3; i += 1) {
+  for (let i = 0; i < round; i += 1) {
     str[i] = [];
     const num = getRandom(100, 9999);
     str[i][0] = `${num}`;
