@@ -6,7 +6,7 @@ const evenFunction = () => {
     str[i] = [];
     const num = getRandom(1, 100);
     str[i][0] = `${num}`;
-    str[i][1] = num % 2 === 0 ? '\'yes\'' : '\'no\'';
+    str[i][1] = num % 2 === 0 ? 'yes' : 'no';
   }
 
   gameFunction('Answer "yes" if number is even otherwise answer "no"\n', str);
