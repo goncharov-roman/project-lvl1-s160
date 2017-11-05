@@ -3,9 +3,9 @@ import { gameFunction, getRandom } from '..';
 const calcFunction = () => {
   const str = [];
   let symbol = '';
-  const num1 = getRandom(0, 20);
-  const num2 = getRandom(0, 20);
-  const arithmetic = getRandom(0, 2);
+  const num1 = getRandom(0, 21);
+  const num2 = getRandom(0, 21);
+  const arithmetic = getRandom(0, 3);
   if (arithmetic === 0) {
     symbol = '+';
     str[1] = num1 + num2;
