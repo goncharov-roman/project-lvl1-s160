@@ -1,18 +1,18 @@
-#!/usr/bin/env node
 import { gameFunction, getRandom } from '..';
 
-const calcFunction = (ind) => {
+const calcFunction = () => {
   const str = [];
   let symbol = '';
   const num1 = getRandom(0, 20);
   const num2 = getRandom(0, 20);
-  if (ind % 3 === 0) {
+  const arithmetic = getRandom(0, 2);
+  if (arithmetic === 0) {
     symbol = '+';
     str[1] = num1 + num2;
-  } else if (ind % 3 === 1) {
+  } else if (arithmetic === 1) {
     symbol = '-';
     str[1] = num1 - num2;
-  } else if (ind % 3 === 2) {
+  } else if (arithmetic === 2) {
     symbol = '*';
     str[1] = num1 * num2;
   }
@@ -20,4 +20,4 @@ const calcFunction = (ind) => {
   return str;
 };
 
-export default () => gameFunction('What is the result of the expression?\n', calcFunction);
+export default () => gameFunction('What is the result of the expression?', calcFunction);

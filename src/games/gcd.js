@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import { gameFunction, getRandom } from '..';
 
 const getGcd = (num1, num2) => {
@@ -17,4 +16,4 @@ const gcdFunction = () => {
   return str;
 };
 
-export default () => gameFunction('Find the greater common divisor of given numbers\n', gcdFunction);
+export default () => gameFunction('Find the greater common divisor of given numbers', gcdFunction);

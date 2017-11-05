@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import { gameFunction, getRandom } from '..';
 
 const getMinMax = (num, flag) => {
@@ -44,4 +43,4 @@ const balanceFunction = () => {
   return str;
 };
 
-export default () => gameFunction('Balance the given number.\n', balanceFunction);
+export default () => gameFunction('Balance the given number', balanceFunction);

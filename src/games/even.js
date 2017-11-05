@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import { gameFunction, getRandom } from '..';
 
 const evenFunction = () => {
@@ -9,4 +8,4 @@ const evenFunction = () => {
   return str;
 };
 
-export default () => gameFunction('Answer "yes" if number is even otherwise answer "no"\n', evenFunction);
+export default () => gameFunction('Answer "yes" if number is even otherwise answer "no"', evenFunction);

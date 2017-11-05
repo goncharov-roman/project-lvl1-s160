@@ -1,16 +1,19 @@
-#!/usr/bin/env node
 import { gameFunction, getRandom } from '..';
 
 const isPrime = (num) => {
   if (num === 1) {
     return false;
   }
-  for (let i = 2; i * i <= num; i += 1) {
-    if (num % i === 0) {
-      return false;
+  const iter = (ind) => {
+    if (ind ** 2 > num) {
+      return true;
     }
-  }
-  return true;
+    if (num % ind !== 0) {
+      return iter(ind + 1);
+    }
+    return false;
+  };
+  return iter(2);
 };
 
 const primeFunction = () => {
@@ -21,4 +24,4 @@ const primeFunction = () => {
   return str;
 };
 
-export default () => gameFunction('Is the number prime?\n', primeFunction);
+export default () => gameFunction('Is the number prime?', primeFunction);

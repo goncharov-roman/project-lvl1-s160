@@ -2,7 +2,7 @@ import readlineSync from 'readline-sync';
 
 const questionFunction = (task) => {
   console.log('Welcome to the Brain Games!');
-  console.log(task);
+  console.log(`${task}\n`);
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
   return userName;
@@ -30,7 +30,7 @@ export const gameFunction = (task, func) => {
       console.log(`Congratulations, ${userName}!`);
       return 'win';
     }
-    const dataForGame = func(acc);
+    const dataForGame = func();
     const answer = questionAnswer(dataForGame[0]);
     if (answer === String(dataForGame[1])) {
       console.log('Correct!');
